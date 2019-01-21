@@ -1,0 +1,2 @@
+model_checkpoint_path: "C:\\Users\\andre\\OneDrive\\Skrivebord\\ardetector2018\\python\\ardetector\\model\\ar\\resnet\\model.ckpt-355000"
+all_model_checkpoint_paths: "C:\\Users\\andre\\OneDrive\\Skrivebord\\ardetector2018\\python\\ardetector\\model\\ar\\resnet\\model.ckpt-355000"
