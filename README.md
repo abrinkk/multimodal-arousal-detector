@@ -13,7 +13,7 @@ Copy the repository to a local directory.
 ## Making new predictions
  * Locate path to folder containing .edf files of interest (p_edf) and select an output path (p_output)
  * The matlab script *LoadEDF.m* is currently able to handle .edf files from Wisconsin Sleep Cohort, Stanford Sleep Cohort, MrOS Sleep Study, and Cleveland Family Sleep Study. The script needs to be changed to handle differently structured .edf files if necessary.
- * Run "matlab" function *PreprocessNewData.m* as preprocess.PreprocessNewData(p_edf,p_output,ftype,Overwrite), where ftype can currently be one of {'mros','cfs','wsc'}, and if Overwrite = 1 files are deleted and written if existing in p_output, otherwise put Overwrite = 0.
+ * Run "matlab" function *PreprocessNewData.m* as preprocess.PreprocessNewData(p_edf,p_output,ftype,Overwrite), where ftype can currently be one of {'mros','cfs','wsc'}, and if Overwrite = 1 files are overwritten if existing in p_output, otherwise put Overwrite = 0.
  * Run *ar_predict.py* with flags 'pathname', 'output_dir', and 'overwrite' set to input .txt file directory, output prediction directory, and binary decision to overwrite predictions, respectively.
  * In matlab, run getPred(fname,T1,T2,L) to postprocess predictions (fname: file path, T1: arousal prediction threshold = 0.225, T2: wake prediction threshold = 0.45, L: desired output length (default = prediction length)).
  
