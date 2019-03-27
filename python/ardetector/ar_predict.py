@@ -21,10 +21,10 @@ import ar_reader
 
 flags = tf.app.flags
 FLAGS = flags.FLAGS
-flags.DEFINE_string('pathname', 'D:\\ardetector\\data\\ssc_other', 'Files to execute.')
+flags.DEFINE_string('pathname', 'L:\\LovbeskyttetMapper\\Narkolepsi - Matlab Julie AEC\\Pseudoanonymized data - new\\ProcessedDataAndreasBK2019\\Training', 'Files to execute.')
 flags.DEFINE_string('model', 'resnet', 'Which model to use')
 flags.DEFINE_integer('ckpt', '350000', 'Which checkpoint to use (blank for none)')#70000
-flags.DEFINE_string('output_dir','D:\\ardetector\\data\\pred','Directory for predictions')
+flags.DEFINE_string('output_dir','L:\\LovbeskyttetMapper\\Narkolepsi - Matlab Julie AEC\\Pseudoanonymized data - new\\ProcessedDataAndreasBK2019\\Predictions','Directory for predictions')
 flags.DEFINE_integer('overwrite',0,'Overwrite previous predictions (1 = Overwrite)')
 
 def main(argv=None):

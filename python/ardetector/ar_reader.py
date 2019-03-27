@@ -82,9 +82,12 @@ class ArousalData:
             if (self.iter_batch + 1) > len(self.batch_order) or (self.iter_rewind + 1 > 50):
                 raise StopIteration()
         else:
+            files = os.listdir(self.pathname)
+            if self.overwrite == 0:
+                files = [x for x in files if x not in self.output_files]
             if (self.iter_steps + 1) == self.num_steps:
                 raise StopIteration()
-            if self.iter_rewind > len(os.listdir(self.pathname))-2 and not self.is_training:
+            if self.iter_rewind > len(files)-2 and (self.iter_batch + 1) == len(self.batch_order) and self.batch_shift == 1 and not self.is_training:
                 raise StopIteration()
             if (self.iter_batch + 1) == len(self.batch_order):
                 load_not_ok = True
@@ -108,7 +111,7 @@ class ArousalData:
                     self.filename = os.path.join(self.pathname,file)
                     self.validation_files.insert(0,self.filename)
                     try:
-                        self.load()       
+                        self.load()                         
                     except:
                         print('Error loading')
 
