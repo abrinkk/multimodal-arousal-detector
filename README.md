@@ -3,8 +3,9 @@ This repository contains scripts for preprocessing .edf files to .txt files in t
 
 ## Getting started
  * Copy the repository to a local directory.
- * Edit the *profile* file to a custom name.
- * In the matlab folder, add the custom profile name in *paths.m* and specify local paths similar to other profiles.
+ * Create a folder to store preprocessed .edf files.
+ * Create a folder to store output arousal and wake predictions.
+ 
 ## Requirements
  * Matlab >= 2017b
  * Python >= 3.6
