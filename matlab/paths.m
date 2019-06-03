@@ -25,8 +25,14 @@ if isempty(pthDirIndex) || isempty(pthProfile)
             pthProfile = 'abk';
         end
     end
-    
-    if ismember('abk',pthProfile)
+    if ismember('new',pthProfile)
+        pathtofile = mfilename('fullpath');
+        pthDirIndex.base = pathtofile(1:end-12);
+        pthDirIndex.matlabCode = [pthDirIndex.base 'matlab\'];
+        pthDirIndex.Data = [pthDirIndex.matlabCode 'data\'];
+        pthDirIndex.architecture = 'i64';
+        pthDirIndex.python = '';
+    elseif ismember('abk',pthProfile)
         pthDirIndex.base = 'C:\Users\andre\Desktop\ardetector2018\';
         pthDirIndex.matlabCode = 'C:\Users\andre\Desktop\ardetector2018\matlab\';
         pthDirIndex.Data = [pthDirIndex.matlabCode 'data\'];
@@ -54,11 +60,11 @@ if isempty(pthDirIndex) || isempty(pthProfile)
         error('Profile not found.');
     end
     % Add paths
-    addpath([pthDirIndex.matlabCode 'resources']);
-    addpath(genpath([pthDirIndex.matlabCode 'resources/edfread']));
-    addpath(genpath([pthDirIndex.matlabCode 'resources/export_fig']));
-    addpath(genpath([pthDirIndex.matlabCode 'resources/append_pdfs']));
-    addpath(genpath([pthDirIndex.matlabCode 'resources/GEEQBOX']));
+    addpath([pthDirIndex.matlabCode 'resources_matlab']);
+    addpath(genpath([pthDirIndex.matlabCode 'resources_matlab/edfread']));
+    addpath(genpath([pthDirIndex.matlabCode 'resources_matlab/export_fig']));
+    addpath(genpath([pthDirIndex.matlabCode 'resources_matlab/append_pdfs']));
+    addpath(genpath([pthDirIndex.matlabCode 'resources_matlab/GEEQBOX']));
     
 end
 
