@@ -10,7 +10,7 @@ This repository contains scripts for preprocessing .edf files to .txt files in t
  * Matlab >= 2017b
  * Python >= 3.6
  * Python module numpy >= 1.14.0
- * Python module tensorflow >= 1.5.0
+ * Python module tensorflow >= 1.5.0 (currently incompatible with version 2.0)
 
 ## Making new predictions
  * Locate path to folder containing .edf files of interest (p_edf) and select an output path (p_output)
