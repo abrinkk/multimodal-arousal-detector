@@ -1,6 +1,8 @@
 # multimodal-arousal-detector
 This repository contains scripts for preprocessing .edf files to .txt files in the folder 'matlab'. The folder 'python' contains scripts for training and using the model for predicting arousals and wake.
 
+Please see the [publication](https://www.sciencedirect.com/science/article/pii/S1388245720301085).
+
 ## Getting started
  * Copy the repository to a local directory.
  * Create a folder to store preprocessed .edf files.
