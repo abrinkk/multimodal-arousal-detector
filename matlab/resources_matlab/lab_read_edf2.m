@@ -260,17 +260,19 @@ if verbose
 end
 
 if exist('time_stamp','var')
-    unique_fs = unique(header.hdr.numbersperrecord);
-    for i = 1:length(unique_fs)
-        idx_c = header.hdr.numbersperrecord == unique_fs(i);
-        tsi = (time_stamp - 1) * (unique_fs(i) / header.samplingrate) + 1;
-        L_con = unique_fs(i) - 1 + floor(max(tsi));
-        tmp = zeros(sum(idx_c), L_con);
-        for j = 1:hdr.records
-            data_tmp = cell2mat(arrayfun(@(x) data_c{x}(1+(unique_fs(i)*(j-1)):(unique_fs(i)*(j))), find(idx_c), 'Un', 0));
-            tmp(:, tsi(j):(tsi(j) + unique_fs(i) - 1)) = data_tmp;
+    if ~any(isnan(time_stamp))
+        unique_fs = unique(header.hdr.numbersperrecord);
+        for i = 1:length(unique_fs)
+            idx_c = header.hdr.numbersperrecord == unique_fs(i);
+            tsi = (time_stamp - 1) * (unique_fs(i) / (header.samplingrate * hdr.duration)) + 1;
+            L_con = unique_fs(i) - 1 + floor(max(tsi));
+            tmp = zeros(sum(idx_c), L_con);
+            for j = 1:hdr.records
+                data_tmp = cell2mat(arrayfun(@(x) data_c{x}(1+(unique_fs(i)*(j-1)):(unique_fs(i)*(j))), find(idx_c), 'Un', 0));
+                tmp(:, tsi(j):(tsi(j) + unique_fs(i) - 1)) = data_tmp;
+            end
+            data_c(idx_c) = mat2cell(tmp, ones(sum(idx_c),1), size(tmp,2));
         end
-        data_c(idx_c) = mat2cell(tmp, ones(sum(idx_c),1), size(tmp,2));
     end
 end
 clearvars tmp data_tmp tsi
