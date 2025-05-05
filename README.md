@@ -10,9 +10,8 @@ Please see the [publication](https://www.sciencedirect.com/science/article/pii/S
  
 ## Requirements (Updated code to work with Tensorflow v. 2)
  * Matlab >= 2017b
- * Python >= 3.6 (see requirements_tf2.txt for conda environemnt list)
- * Python module numpy >= 1.14.0
- * Python module Tensorflow v. 2
+ * Python = 3.8 
+ * Python module Tensorflow v. 2.10.0
 
 ## Making new predictions (Updated code to work with Tensorflow v. 2)
  * Locate path to folder containing .edf files of interest (p_edf) and select an output path (p_output)
